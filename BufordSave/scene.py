@@ -48,9 +48,6 @@ class Scene(object):
     def stop(self):
         self.running = False
 
-    def isRunning(self):
-        return self.running
-
     def forceQuit(self):
         pygame.quit()
 

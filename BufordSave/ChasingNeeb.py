@@ -85,8 +85,7 @@ class ChasingNeeb(pygame.sprite.Sprite):
 			if (self.isCharacterAbove(buford.y)):
 				self.y += 10
 			elif(self.isCharacterBelow(buford.y)):
-				self.y += 10
-				
+				self.y -= 10
 			if(self.isCharacterLeft(buford.x)):
 				self.x -= 10
 			elif(self.isCharacterRight(buford.x)):

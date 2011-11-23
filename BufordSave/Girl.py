@@ -19,7 +19,9 @@ class Girl(pygame.sprite.Sprite):
 		self.rect.topleft = (self.x, self.y)
 		self.width = 101
 		self.height = 171
-
+		
+		self.isFollowing = False
+		self.spriteToFollow = 0
 		self.pressed = False
 		
 		self.GOING_UP = 0
@@ -70,17 +72,28 @@ class Girl(pygame.sprite.Sprite):
 
 		self.__setCurrentFrame(self.currentFrameIndex)
 		
+		self.__updateCoordinates()
+		
 		self.image = self.imageMaster
 		self.rect = self.image.get_rect()
 		self.rect.topleft = (self.x, self.y)
 		
 		self.CheckEvents()
-		
+	
 	def __animateScared(self):
 		self.currentFrameIndex = 1
 	
 	def __animateNormal(self):
 		self.currentFrameIndex = 0
+		
+	def setFollowingSprite(self, sprite):
+		self.spriteToFollow = sprite
+		self.isFollowing = True
+	
+	def __updateCoordinates(self):
+		if self.isFollowing:
+			self.y = self.spriteToFollow.y + self.spriteToFollow.height
+			self.x = self.spriteToFollow.x + self.spriteToFollow.width
 	
 	def CheckEvents(self):
 		self.mouseDown()

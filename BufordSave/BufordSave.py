@@ -28,6 +28,8 @@ class BufordSave(Scene):
 		self.buford.x = self.girl.x + self.girl.width + 20
 		self.buford.y = self.girl.y + self.girl.height + 28
 		
+		self.girl.setFollowingSprite(self.buford)
+		
 		self.sprites = [background, self.girl, self.buford]                               
 		neebCount = 4
 		self.neebSprites = []
@@ -37,10 +39,10 @@ class BufordSave(Scene):
 			print("Making a neeb", change)
 			self.neebSprites.append( ChasingNeeb() )
 			self.neebSprites[x].setImage("neeb_still.gif")
-			self.neebSprites[x].x = 425 - change
-			self.neebSprites[x].y = 450 - change
+			self.neebSprites[x].x = 0 + change
+			self.neebSprites[x].y = 0
 			self.sprites.append(self.neebSprites[x])
-			change -= 10
+			change += 10
 			
 		self.neebGroup = Scene.makeSpriteGroup( self, self.neebSprites )
 		

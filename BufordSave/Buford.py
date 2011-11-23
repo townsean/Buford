@@ -17,6 +17,8 @@ class Buford(pygame.sprite.Sprite):
 		
 		self.x = 200
 		self.y = 200
+		self.width = 33
+		self.height = 66
 		self.rect.topleft = (self.x, self.y)
 
 		self.pressed = False
@@ -47,8 +49,8 @@ class Buford(pygame.sprite.Sprite):
 		master_image = image
 
 		master_width, master_height = master_image.get_size()
-		width = 33
-		height = 66
+		width = self.width
+		height = self.height
 		for index in range(int(master_width/width)):
 			images.append(master_image.subsurface((index*width,0,width,height)))
 
