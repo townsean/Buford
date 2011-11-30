@@ -28,10 +28,14 @@ class Buford(pygame.sprite.Sprite):
 		self.GOING_DOWN = 1
 		self.INACTIVE = 2
 		self.DIE = 3
+		self.CHASING = 4
 		
 		self.status = self.INACTIVE
 		self.currentFrameIndex = 0
 		self.frames = []
+		
+	def isChasing(self):
+		return ( self.CHASING == self.status )
 		
 	def setImage(self, filename):
 		filepath = shared.path("data", filename)
@@ -153,14 +157,6 @@ class Buford(pygame.sprite.Sprite):
 			self.status = self.INACTIVE
 		elif( self.currentFrameIndex >= len( self.frames )-1 ):
 			self.status = self.GOING_DOWN
-
-	def popUp(self):
-		print ("POP UP")
-		self.status = self.GOING_UP
-	
-	def popDown(self):
-		print ("POP DOWN")
-		self.status = self.GOING_DOWN
 
 if __name__ == "__main__":
 	import scene 

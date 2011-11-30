@@ -71,6 +71,7 @@ class BufordSave(Scene):
 			neebSprite.setIsBufordClose(isBufordClose)
 			if isBufordClose:
 				print("HE IS CLOSE!!!!")
+				self.buford.status = self.buford.CHASING
 				neebSprite.runAwayFromBuford(self.buford)
 		
 		#Update the girl if she is scared

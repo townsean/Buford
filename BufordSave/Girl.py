@@ -91,7 +91,7 @@ class Girl(pygame.sprite.Sprite):
 		self.isFollowing = True
 	
 	def __updateCoordinates(self):
-		if self.isFollowing:
+		if self.isFollowing and not self.spriteToFollow.isChasing():
 			self.y = self.spriteToFollow.y + self.spriteToFollow.height
 			self.x = self.spriteToFollow.x + self.spriteToFollow.width
 	
